@@ -1,0 +1,21 @@
+{
+  "name": "convert-testcase",
+  "version": "1.0.0",
+  "description": "QC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JudasFate",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.3.3",
+    "decode-html": "^2.0.0",
+    "exceljs": "^3.2.0",
+    "express": "^4.17.1",
+    "read-excel-file": "^4.0.3",
+    "regenerator-runtime": "^0.13.3",
+    "string-strip-html": "^4.3.3",
+    "xml-to-json-stream": "^1.1.0"
+  }
+}
