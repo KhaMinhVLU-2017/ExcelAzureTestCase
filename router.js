@@ -19,29 +19,26 @@ router.get('/json', (req, res) => {
     }
     let workbook = new ExcelJS.Workbook()
     let listContrucExcel = []
+    let headerTitle = []
     //Read
     workbook.csv.readFile(pathFile)
         .then(worksheet => {
             worksheet.eachRow(function (row, rowNumber) {
-                if (rowNumber !== 1) {
+                if (rowNumber === 1) {
+                    row.eachCell((cell, colNumber) => {
+                        let keyPrimite = cell.value.split(' ').join('-')
+                        headerTitle.push(keyPrimite)
+                    })
+                }
+                else if (rowNumber !== 1) {
                     let recore = {}
                     //console.log('Row ' + rowNumber + ' = ' + JSON.stringify(row.values));
                     row.eachCell(function (cell, colNumber) {
-                        if (colNumber === 1) {
-                            recore.state = cell.value
-                        }
-                        if (colNumber === 2) {
-                            recore.id = cell.value
-                        }
-                        if (colNumber === 3) {
-                            recore.workItem = cell.value
-                        }
-                        if (colNumber === 4) {
-                            recore.title = cell.value
-                        }
-                        if (colNumber === 5) {
+                        let keyRecore = headerTitle[colNumber - 1]
+                        if (keyRecore !== 'Steps') {
+                            recore[keyRecore] = cell.value
+                        } else {
                             let { value } = cell
-                            //console.log(rowNumber, colNumber)
                             parserXml.xmlToJson(value, (err, data) => {
                                 value
                                 let { step } = data.steps
@@ -59,12 +56,11 @@ router.get('/json', (req, res) => {
                                     //console.log(jsonStep)
                                     ListStep.push(jsonStep)
                                 }
-                                recore["steps"] = ListStep
+                                recore[keyRecore] = ListStep
                             })
-                            //console.log('Cell ' + colNumber + ' = ' + cell.value);
                         }
-                    });
 
+                    })
                     listContrucExcel.push(recore)
                 }
             })
@@ -74,24 +70,29 @@ router.get('/json', (req, res) => {
             let pathFileNew = './Excels/result.csv'
             let workbookNew = new ExcelJS.Workbook()
             let workSheetNew = workbookNew.addWorksheet('MeoooMeooo')
-            let columnHeader = [
-                { header: 'State', key: 'state', width: 15 },
-                { header: 'Id', key: 'id', width: 10 },
-                { header: 'Work Item Type', key: 'workitem', width: 20 },
-                { header: 'Title', key: 'title', width: 40 },
-                { header: 'Step', key: 'step', width: 40 },
-            ]
+            let columnHeader = []
+            for (let key of headerTitle) {
+                let head = switchHeader(key)
+                columnHeader.push(head)
+            }
             workSheetNew.columns = columnHeader
 
             let rows = []
 
             for (let item of listContrucExcel) {
-                let row = [item.state, item.id, item.workItem, item.title]
-                let step = item.steps.map(step => {
-                    let des = `Step ${parseInt(step.step) + 1}:             Action-${step.action}                 ExpectedResult-${step.expectedResult}`
-                    return des
-                })
-                row.push(step.join('\n'))
+                let row = []
+                for (let keyHead of headerTitle) {
+                    if (keyHead === 'Steps') {
+                        let step = item[keyHead].map(step => {
+                            let des = `Step ${parseInt(step.step) + 1}:             Action-${step.action}                 ExpectedResult-${step.expectedResult}`
+                            let desNullExpected = `Step ${parseInt(step.step) + 1}:             Action-${step.action}`
+                            return step.expectedResult ? des : desNullExpected
+                        })
+                        row.push(step.join('\n'))
+                    } else {
+                        row.push(item[keyHead])
+                    }
+                }
                 rows.push(row)
             }
             workSheetNew.addRows(rows)
@@ -102,6 +103,24 @@ router.get('/json', (req, res) => {
             res.json(listContrucExcel)
         })
 })
+
+let switchHeader = (key) => {
+    let headMeo = {}
+    switch (key) {
+        case 'Title':
+            headMeo = { header: 'Title', key: 'title', width: 40, bold: true, size: 16 }
+            return headMeo
+        case 'Steps':
+            headMeo = { header: 'Steps', key: 'steps', width: 40, bold: true, size: 16 }
+            return headMeo
+        case 'Work-Item-Type':
+            headMeo = { header: 'Work-Item-Type', key: 'work-item-type', width: 20, bold: true, size: 16 }
+            return headMeo
+        default:
+            headMeo = { header: key, key: key.toLowerCase(), width: 20, bold: true, size: 16 }
+            return headMeo
+    }
+}
 
 let jsonPareStream = {
     "Step": 0,

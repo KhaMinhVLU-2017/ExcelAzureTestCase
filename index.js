@@ -6,7 +6,7 @@ const axios = require('axios')
 
 app.use('/api', router)
 
-app.listen(port, _ => {
+let server = app.listen(port, _ => {
     console.log(`Example app listening on port ${port}!`)
     let url = `http://localhost:${port}/api/json`
     axios.get(url)
@@ -17,6 +17,16 @@ app.listen(port, _ => {
             console.log(error)
         })
         .finally(function () {
+            let count = 3
             console.log('Complete computed')
+            let tInter = setInterval(() => {
+                console.log(`Server will down ${count}`)
+                count--
+            }, 1000)
+            setTimeout(() => {
+                clearInterval(tInter)
+                console.log('Stop server...!')
+                server.close()
+            }, 4000)
         })
 })
