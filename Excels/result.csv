@@ -1,0 +1,100 @@
+ID,Work-Item-Type,Title,Assigned-To,State,Steps
+2924,Test Case,Verify that UI and the default value of Clone a Plan page are displayed correctly,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Check UI and the default value of Clone Plan page and compare with original Plan                 ExpectedResult-UI and the default value are displayed correctly: - Basic Detail section: enable - Availability section: enable - Period section: enable - Scenario Plan Restrictions: + New Membership + Renew Membership + Change Membership + Re-join Membership - Payments section is disable in grey and show 4 fee as below: + Package administration fee
+    + Package Joining fee
+    + Package freeze fee
+    + Package Recurring fee / Package Lump-sum fee -  Comment: enable and there is no history at Comment field
+Step 6:             Action-"
+2927,Test Case,Verify that the data of dropdown lists are shown correctly,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Click on Package dropdown list                 ExpectedResult-- The data is shown correctly
+Step 6:             Action-Click on Plan Class dropdown list                 ExpectedResult-- The data is shown correctly
+Step 7:             Action-Click on Payment Method Configuration dropdown list                 ExpectedResult-- The data is shown correctly
+Step 8:             Action-Click on Extra Clubs dropdown list                 ExpectedResult-- The data is shown correctly: + Default - No extra clubs. + 1 Extra Club allowed
+Step 9:             Action-Click on Fixed Term  dropdown list                 ExpectedResult-- The data is shown correctly
+Step 10:             Action-Click on Subsidy dropdown list                 ExpectedResult-- The data is shown correctly"
+2928,Test Case,Verify that the warning message is shown when missing required fields,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Quick Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Quick Clone button
+Step 5:             Action-Leave blank at Name field
+Step 6:             Action-Leave blank at Package field
+Step 7:             Action-Leave blank at Plan Class field
+Step 8:             Action-Leave blank at Payment Method Configuration
+Step 9:             Action-Leave blank at Available From and Available To
+Step 10:             Action-Leave blank at Comment field
+Step 11:             Action-Click on save button                 ExpectedResult-The warning message ""This field is required"" is shown"
+2929,Test Case,Verify that the warning message is shown when selecting Available From > Available To,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Available To                 ExpectedResult-The warning message "" [Field name 1] must be greater than [ Field name 2 ]. "" is shown
+Step 6:             Action-Click on Save button"
+2930,Test Case,Verify that Plan is cloned successfully when entering valid data into required fields,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Enter valid data into all required  fields
+Step 6:             Action-Click on save button
+Step 7:             Action-Click on Yes button in the confirmation pop up                 ExpectedResult-- The pop up ""The information has been saved successfully!"" is shown
+Step 8:             Action-Click on  Close button                 ExpectedResult-- Plan is cloned successfully. - A new Plan is shown in Plan list"
+2931,Test Case,Verify that Plan is cloned successfully when entering valid data into all fields,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Enter valid into all fields
+Step 6:             Action-Click on save button
+Step 7:             Action-Click on Yes button in the confirmation pop up                 ExpectedResult-- The pop up ""The information has been saved successfully!"" is shown
+Step 8:             Action-Click on Close button                 ExpectedResult-- Plan is cloned successfully. - A new Plan is shown in Plan list"
+2932,Test Case,Verify that Plan is cloned unsuccessfully when entering duplicated Plan name,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Leave default value at Plan Name field
+Step 6:             Action-Entering valid data into remaining fields
+Step 7:             Action-Click on Save button                 ExpectedResult-The warning pop up ""The Plan Name already exists, please try again."""
+2939,Test Case,Verify that Package Periods is checked/Uncheck correctly when check/Uncheck Plan Periods,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Check a box at  Plan Period                 ExpectedResult-- Number box  and time  list are enable - Corresponding box at Package Periods is un- checked
+Step 6:             Action-Un-check other box at Plan Period                 ExpectedResult-- Number box and time list are enable. - Corresponding box at Package Periods is checked"
+2976,Test Case,Verify that number is only inputted text boxes of Plan Periods.,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-Select on  a properties
+Step 6:             Action-Enter invalid data into Plan Period text box of that properties. Eg: abc, #$%^                 ExpectedResult-Can not enter invalid data into  Plan Period text box"
+2978,Test Case,Verify that Plan is cloned successfully when selecting multiple Club Groups,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-At Availability section, select multiple Club Group
+Step 5:             Action-Enter valid data into remaining fields
+Step 6:             Action-Click on Save button
+Step 7:             Action-Click on Yes button in the confirmation pop up                 ExpectedResult-- A new plan is cloned and display in Plan list - All Plan Information are saved correctly"
+2981,Test Case,Verify that Plan is cloned successfully when selecting multiple Restrictions.,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Click on Clone button
+Step 5:             Action-At Scenario restriction section, Check on multiple Restrictions
+Step 6:             Action-Enter valid data into remaining fields
+Step 7:             Action-Click on Save button
+Step 8:             Action-Click on Yes button in the confirmation pop up                 ExpectedResult-- A new plan is cloned and display in Plan list - All Plan Information are saved correctly"
+2982,Test Case,Verify that Plan is cloned unsuccessfully when clicking on Cancel button in case without changing original information,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Don't change any information
+Step 5:             Action-Click on Cancel button                 ExpectedResult-- Back to Plan list page - New plan is not saved"
+2983,Test Case,Verify that Plan is cloned unsuccessfully when clicking on Cancel button in case changing original information,Hang.LeThiThuy <Hang.LeThiThuy@evolutionwellnesssolutionsg.onmicrosoft.com>,Design,"Step 1:             Action-Pre-condition: Log in with a User has Clone Plan right
+Step 2:             Action-Navigate to Main menu > Products > Plan > View & Search
+Step 3:             Action-At a row of a Plan > Click on ""...""
+Step 4:             Action-Enter valid data into Comment field
+Step 5:             Action-Click on Cancel button                 ExpectedResult-The confirmation pop up is displayed: There are unsaved changes. Do you want to leave without finishing?"" with 2 options: + Stay on this page + Leave this page
+Step 6:             Action-Click on Stay on this page button                 ExpectedResult-The confirmation pop up is closed and keep staying at Clone Plan page
+Step 7:             Action-Click on Cancel button again
+Step 8:             Action-Click on Leave this page button                 ExpectedResult-- Back to Plan list page - New plan is not saved"

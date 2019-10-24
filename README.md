@@ -14,4 +14,11 @@
     - It help you beautiful file excel don't think for sequence of columns in file excel from azure.
 
 ### Install Guide
-- 
+- You should follow step below:
+1. You make folder `Excels`. Where resolve and result file excel. If It exist  you don't make It.
+2. Execute line : `npm i`
+3. Set name file you need cover: **query**. You can saw image below
+4. [img]
+5. Then you excute line `node index.js` for system auto render file result
+6. After you navigation to Folder Excels you will see file **result.csv**
+7. [img]
