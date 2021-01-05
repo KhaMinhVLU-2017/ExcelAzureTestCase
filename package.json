@@ -9,7 +9,7 @@
   "author": "JudasFate",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "core-js": "^3.3.3",
     "decode-html": "^2.0.0",
     "exceljs": "^3.2.0",
