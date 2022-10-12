@@ -14,7 +14,7 @@
     "decode-html": "^2.0.0",
     "exceljs": "^3.2.0",
     "express": "^4.17.1",
-    "read-excel-file": "^4.0.3",
+    "read-excel-file": "^5.5.0",
     "regenerator-runtime": "^0.13.3",
     "string-strip-html": "^4.3.3",
     "xml-to-json-stream": "^1.1.0"
