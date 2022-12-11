@@ -13,7 +13,7 @@
     "core-js": "^3.3.3",
     "decode-html": "^2.0.0",
     "exceljs": "^3.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "read-excel-file": "^4.0.3",
     "regenerator-runtime": "^0.13.3",
     "string-strip-html": "^4.3.3",
